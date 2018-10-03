@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: com.objectpartners.plummer
+---
+testFramework: junit
+sourceLanguage: java

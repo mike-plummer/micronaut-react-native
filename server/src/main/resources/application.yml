@@ -1,0 +1,22 @@
+micronaut:
+  application:
+    name: server
+
+  #Uncomment to set server port
+  #    server:
+  #        port: 8080
+
+  security:
+    enabled: true
+    endpoints:
+      login:
+        enabled: true
+      oauth:
+        enabled: true
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          secret:
+            generator:
+              secret: UberSecretMegaPassword
