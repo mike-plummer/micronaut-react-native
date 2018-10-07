@@ -14,7 +14,8 @@ export const initialState: MRN.State.Auth = Immutable({
 export const userLoaded = (state: MRN.State.Auth, { user }: MRN.Actions.Auth.UserLoaded): MRN.State.Auth =>
   Immutable.from(state).merge({
     loaded: true,
-    user
+    user,
+    error: null
   });
 
 export const setToken = (state: MRN.State.Auth, { accessToken, refreshToken }: MRN.Actions.Auth.SetToken): MRN.State.Auth =>

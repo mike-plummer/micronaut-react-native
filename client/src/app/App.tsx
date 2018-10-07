@@ -8,6 +8,7 @@ import { InfoScreen } from '../screens/info/InfoScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { LoginScreen } from '../screens/login/LoginScreen';
 import { AuthActionCreators } from './store/auth/auth.actioncreators';
+import { UserScreen } from '../screens/user/UserScreen';
 
 const icon_prefix = Platform.select({
   ios: 'ios-',
@@ -35,8 +36,21 @@ const Info = createStackNavigator({
   initialRouteName: Routes.Info
 });
 
+const User = createStackNavigator({
+  [Routes.User]: {
+    screen: UserScreen,
+    path: '/user',
+    navigationOptions: () => ({
+      title: 'User'
+    })
+  }
+}, {
+  initialRouteName: Routes.User
+});
+
 const Content = createBottomTabNavigator({
-  Info: { screen: Info }
+  Info: { screen: Info },
+  User: { screen: User }
 }, {
   initialRouteName: Routes.Info,
   navigationOptions: ({ navigation }) => ({
@@ -46,6 +60,9 @@ const Content = createBottomTabNavigator({
       switch (routeName) {
         case Routes.Info:
           icon = 'checkmark';
+          break;
+        case Routes.User:
+          icon = 'person';
           break;
         default:
           throw new Error('Unknown route');
@@ -81,7 +98,9 @@ class App extends React.Component<Props> {
 }
 
 const styles = StyleSheet.create({
-  navbar: {}
+  navbar: {
+    backgroundColor: 'blue'
+  }
 });
 
 const mapDispatchToProps: DispatchProps = {

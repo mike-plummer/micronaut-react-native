@@ -24,10 +24,7 @@ export interface SetToken extends Action<Types.SET_TOKEN> {
   refreshToken: string;
 }
 
-export interface Logout extends Action<Types.LOGOUT> {
-  accessToken: string;
-  refreshToken: string;
-}
+export interface Logout extends Action<Types.LOGOUT> {}
 
 export interface Refresh extends Action<Types.REFRESH> {
   refreshToken: string;

@@ -6,13 +6,14 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Produces;
 import io.micronaut.security.annotation.Secured;
 
-import java.security.Principal;
+import java.time.LocalDateTime;
 
-@Controller("/user")
-public class UserController {
+@Secured("ADMIN")
+@Controller("/data")
+public class DataController {
     @Get("/")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getUser(Principal principal) {
-        return principal.getName();
+    public String getData() {
+        return LocalDateTime.now().toString();
     }
 }

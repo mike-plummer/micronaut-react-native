@@ -1,3 +1,4 @@
 export enum Routes {
-  Info = 'Info'
+  Info = 'Info',
+  User = 'User'
 }

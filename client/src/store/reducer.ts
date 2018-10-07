@@ -1,9 +1,11 @@
 import { Action, combineReducers, Reducer } from 'redux';
 import { MRN } from '../model';
 import authReducer from '../app/store/auth/auth.reducer';
+import dataReducer from '../app/store/data/data.reducer';
 
 const appReducer = combineReducers<MRN.State.State>({
-  auth: authReducer
+  auth: authReducer,
+  data: dataReducer
 });
 
 const rootReducer: Reducer<MRN.State.State> = (

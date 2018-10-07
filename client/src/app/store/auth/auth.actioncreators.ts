@@ -18,11 +18,8 @@ const refresh = (refreshToken: string): MRN.Actions.Auth.Refresh =>
     refreshToken
   });
 
-const logout = (accessToken: string, refreshToken: string): MRN.Actions.Auth.Logout =>
-  createAction(MRN.Actions.Auth.Types.LOGOUT, {
-    accessToken,
-    refreshToken
-  });
+const logout = (): MRN.Actions.Auth.Logout =>
+  createAction(MRN.Actions.Auth.Types.LOGOUT);
 
 const error = (error: Error): MRN.Actions.Auth.Error =>
   createAction(MRN.Actions.Auth.Types.ERROR, {

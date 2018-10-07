@@ -1,7 +1,8 @@
 import { MRN } from ".";
 
 export interface State {
-  auth: Auth
+  auth: Auth,
+  data: Data
 }
 
 export interface Auth {
@@ -10,4 +11,10 @@ export interface Auth {
   accessToken: string | null;
   refreshToken: string | null;
   user: MRN.Structs.User | null
+}
+
+export interface Data {
+  loading: boolean;
+  error: string | null;
+  data: string | null;
 }

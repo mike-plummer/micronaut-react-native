@@ -39,12 +39,9 @@ export function* refresh({ refreshToken }: MRN.Actions.Auth.Refresh): SagaIterat
   }
 }
 
-export function* logout({ accessToken, refreshToken }: MRN.Actions.Auth.Logout): SagaIterator {
+export function* logout(): SagaIterator {
   try {
-    yield call(post, '/revoke', {
-      accessToken,
-      refreshToken
-    });
+    yield call(post, '/revoke');
   } catch (error) {
     yield put(AuthActionCreators.error(error));
   }

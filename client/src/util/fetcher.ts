@@ -3,14 +3,14 @@ export const TokenHolder = {
   refreshToken: null
 };
 
-export const post = (path: string, body: object): Promise<Response> =>
+export const post = (path: string, body?: object): Promise<Response> =>
   fetch(`http://localhost:8080${path}`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(body)
+    body: body ? JSON.stringify(body) : undefined
   })
     .then(response => {
       const { status } = response;
