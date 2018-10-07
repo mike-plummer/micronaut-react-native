@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { Formik } from 'formik';
 import { TextField } from '../../components/textField/TextField';
 import { MRN } from '../../model';
 
 interface Props {
+  loginError: string | null;
   onLogin: (username: string, password: string) => void;
 }
 
@@ -18,6 +19,7 @@ class LoginScreenComponent extends React.Component<Props> {
   };
 
   render(): React.ReactNode {
+    const { loginError } = this.props;
     return (
       <View style={styles.container}>
         <Formik
@@ -53,6 +55,9 @@ class LoginScreenComponent extends React.Component<Props> {
             )
           }
         </Formik>
+        {loginError && (
+          <Text style={styles.error}>{loginError}</Text>
+        )}
       </View>
     )
   }
@@ -63,6 +68,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  error: {
+    color: 'red'
   }
 });
 

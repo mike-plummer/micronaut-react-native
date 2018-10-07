@@ -10,7 +10,7 @@ const rootReducer: Reducer<MRN.State.State> = (
   state: MRN.State.State,
   action: Action
 ): MRN.State.State => {
-  if (action.type === MRN.Actions.Auth.Types.LOGOUT) { //TODO
+  if (action.type === MRN.Actions.Auth.Types.LOGOUT) {
     state = undefined;
   }
 

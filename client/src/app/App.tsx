@@ -73,7 +73,7 @@ class App extends React.Component<Props> {
         {auth.loaded ? (
           <Content />
         ) : (
-          <LoginScreen onLogin={onLogin} />
+          <LoginScreen onLogin={onLogin} loginError={auth.error} />
         )}
       </React.Fragment>
     )

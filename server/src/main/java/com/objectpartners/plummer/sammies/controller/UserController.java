@@ -6,17 +6,13 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Produces;
 import io.micronaut.security.annotation.Secured;
 
-@Controller("/hello")
-public class SandwichController {
+import java.security.Principal;
+
+@Controller("/user")
+public class UserController {
     @Get("/")
     @Produces(MediaType.TEXT_PLAIN)
-    public String index() {
-        return "Hello World";
-    }
-
-    @Get("/secured")
-    @Secured("ROLE_USER")
-    public String secured() {
-        return "Secured";
+    public String getUser(Principal principal) {
+        return principal.getName();
     }
 }

@@ -19,4 +19,4 @@ micronaut:
         signatures:
           secret:
             generator:
-              secret: UberSecretMegaPassword
+              secret: UberSecretMegaPasswordThatNobodyCanEverGuess
