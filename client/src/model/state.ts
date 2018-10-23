@@ -6,11 +6,12 @@ export interface State {
 }
 
 export interface Auth {
-  loaded: boolean;
+  autoRefresh: boolean;
+  loading: boolean;
   error: string | null;
-  accessToken: string | null;
-  refreshToken: string | null;
-  user: MRN.Structs.User | null
+  user: MRN.Structs.User | null;
+  lastTokenRefresh: string | null;
+  expired: boolean;
 }
 
 export interface Data {

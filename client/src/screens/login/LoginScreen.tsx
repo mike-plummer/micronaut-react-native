@@ -5,6 +5,7 @@ import { TextField } from '../../components/textField/TextField';
 import { MRN } from '../../model';
 
 interface Props {
+  loggingIn: boolean;
   loginError: string | null;
   onLogin: (username: string, password: string) => void;
 }
@@ -33,7 +34,7 @@ class LoginScreenComponent extends React.Component<Props> {
   };
 
   render(): React.ReactNode {
-    const { loginError } = this.props;
+    const { loggingIn, loginError } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.instructions}>{instructions}</Text>
@@ -66,7 +67,7 @@ class LoginScreenComponent extends React.Component<Props> {
                   textContentType="password"
                   secureTextEntry={true}
                 />
-                <Button title="Login" onPress={handleSubmit}/>
+                <Button title="Login" onPress={handleSubmit} disabled={loggingIn}/>
               </View>
             )
           }

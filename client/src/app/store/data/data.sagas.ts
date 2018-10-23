@@ -7,9 +7,9 @@ import { DataActionCreators } from './data.actioncreators';
 
 export function* fetch(): SagaIterator {
   try {
-    const response = yield call(get, '/data');
+    const response = (yield call(get, '/data')) as Response;
 
-    const body = (yield call(response.json.bind(response))) as string;
+    const body = (yield call(response.text.bind(response))) as string;
 
     yield put(DataActionCreators.fetchSuccess(body));
   } catch (err) {

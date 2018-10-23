@@ -7,17 +7,6 @@ const login = (username: string, password: string): MRN.Actions.Auth.Login =>
   password
 });
 
-const setToken = (accessToken: string, refreshToken: string): MRN.Actions.Auth.SetToken =>
-  createAction(MRN.Actions.Auth.Types.SET_TOKEN, {
-    accessToken,
-    refreshToken
-  });
-
-const refresh = (refreshToken: string): MRN.Actions.Auth.Refresh =>
-  createAction(MRN.Actions.Auth.Types.REFRESH, {
-    refreshToken
-  });
-
 const logout = (): MRN.Actions.Auth.Logout =>
   createAction(MRN.Actions.Auth.Types.LOGOUT);
 
@@ -31,13 +20,27 @@ const userLoaded = (user: MRN.Structs.User): MRN.Actions.Auth.UserLoaded =>
     user
   });
 
+const tokenRefreshed = (): MRN.Actions.Auth.TokenRefresh =>
+  createAction(MRN.Actions.Auth.Types.TOKEN_REFRESH, {
+    timestamp: new Date().toLocaleString()
+  });
+
+const setAutoRefresh = (autoRefresh: boolean): MRN.Actions.Auth.SetAutoRefresh =>
+  createAction(MRN.Actions.Auth.Types.SET_AUTO_REFRESH, {
+    autoRefresh
+  });
+
+const tokenExpired = (): MRN.Actions.Auth.TokenExpired =>
+  createAction(MRN.Actions.Auth.Types.TOKEN_EXPIRED);
+
 const AuthActionCreators = {
   login,
-  setToken,
-  refresh,
   logout,
   error,
-  userLoaded
+  userLoaded,
+  tokenRefreshed,
+  setAutoRefresh,
+  tokenExpired
 };
 
 export {

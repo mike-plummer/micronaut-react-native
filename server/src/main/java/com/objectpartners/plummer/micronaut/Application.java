@@ -1,4 +1,4 @@
-package com.objectpartners.plummer.sammies;
+package com.objectpartners.plummer.micronaut;
 
 import io.micronaut.runtime.Micronaut;
 

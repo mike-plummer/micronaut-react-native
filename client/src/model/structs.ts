@@ -1,3 +1,8 @@
+export interface Credentials {
+  username: string;
+  password: string;
+}
+
 export interface User {
   username: string;
   roles: string[];
@@ -10,4 +15,9 @@ export interface LoginResponse {
   token_type: string;
   username: string;
   roles: string[];
+}
+
+export interface RefreshResponse {
+  access_token: string;
+  refresh_token: string;
 }

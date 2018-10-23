@@ -1,4 +1,4 @@
-import { Platform, StatusBar, StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -9,6 +9,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { LoginScreen } from '../screens/login/LoginScreen';
 import { AuthActionCreators } from './store/auth/auth.actioncreators';
 import { UserScreen } from '../screens/user/UserScreen';
+import { isEmpty } from 'lodash';
 
 const icon_prefix = Platform.select({
   ios: 'ios-',
@@ -83,14 +84,10 @@ class App extends React.Component<Props> {
 
     return (
       <React.Fragment>
-        <StatusBar
-          backgroundColor="blue"
-          barStyle="light-content"
-        />
-        {auth.loaded ? (
+        {!isEmpty(auth.user) ? (
           <Content />
         ) : (
-          <LoginScreen onLogin={onLogin} loginError={auth.error} />
+          <LoginScreen onLogin={onLogin} loginError={auth.error} loggingIn={auth.loading} />
         )}
       </React.Fragment>
     )
