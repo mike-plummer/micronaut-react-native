@@ -50,8 +50,8 @@ class UserScreenComponent extends React.Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'space-between',
+    margin: 20
   },
   userInfo: {
     margin: 5,
