@@ -38,6 +38,10 @@ public class DataController {
                 .delay(2, TimeUnit.SECONDS);
     }
 
+    /**
+     * This is where the data really 'comes from' - responds to the nested HTTP request to return the current time
+     * and a super-funny little quote
+     */
     @Get("/source")
     @Secured(SecurityRule.IS_ANONYMOUS)
     @Produces(MediaType.TEXT_PLAIN)
